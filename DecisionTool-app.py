@@ -131,23 +131,6 @@ if selected == "Upload Data":
 #Data Predictions
 #Preparing training_data
 if selected == "Predictions":
-    page_bg_img = """
-    <style>
-    [data-testid="stAppViewContainer"] {
-    background-image: url("https://c1.wallpaperflare.com/preview/224/1020/39/59689826ee8c0-thumbnail.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-
-    [data-testid="stHeader"] {
-    background: rgba(0,0,0,0);
-    }
-    [data-testid="stToolbar"] {{
-    right: 2rem;
-    }}
-    </style>
-    """
-    st.markdown(page_bg_img, unsafe_allow_html=True)
     SQL_Query = pd.read_sql_query('''select id,Year,Week,Date,center_id,meal_id,checkout_price,base_price,emailer_for_promotion,homepage_featured,num_orders,city_code,region_code,center_type,op_area,category,cuisine from train_data''', connection)
     train_data = pd.DataFrame(SQL_Query, columns=['id','Year','Week','Date','center_id','meal_id','checkout_price','base_price','emailer_for_promotion','homepage_featured','num_orders','city_code','region_code','center_type','op_area','category','cuisine'])
     encoder=LabelEncoder()
