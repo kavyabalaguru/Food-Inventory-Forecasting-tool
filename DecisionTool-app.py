@@ -15,7 +15,7 @@ from bokeh.models.widgets import Div
 
 #creating connection
 st.set_page_config(page_title="Inventory Demand Forecasting Tool",page_icon="🧊",layout="wide",initial_sidebar_state="expanded")
-connection = mysql.connector.connect(host='localhost',database='inventory_demand_forecasting',user='root',password='Kavya@2000')
+connection = mysql.connector.connect(**st.secrets["mysql"])
 if connection.is_connected():
     db_Info = connection.get_server_info()
     cursor = connection.cursor()
