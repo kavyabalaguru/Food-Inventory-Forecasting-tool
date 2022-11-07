@@ -72,6 +72,9 @@ if selected == "Upload Data":
     deleting_all_rows="""truncate table test_data""" 
     cursor.execute(deleting_all_rows)
     connection.commit()
+    deleting_all_rows="""truncate table Predicted_datafile""" 
+    cursor.execute(deleting_all_rows)
+    connection.commit()
     tab1, tab2 = st.tabs(["Upload the file", "enter the data here"])
     #Uploading the file
     with tab1:
