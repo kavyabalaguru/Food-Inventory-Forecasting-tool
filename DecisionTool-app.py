@@ -72,7 +72,7 @@ if selected == "Upload Data":
     deleting_all_rows="""truncate table test_data""" 
     cursor.execute(deleting_all_rows)
     connection.commit()
-    deleting_all_rows="""truncate table Predicted_datafile""" 
+    deleting_all_rows="""truncate table predicted_datafile""" 
     cursor.execute(deleting_all_rows)
     connection.commit()
     tab1, tab2 = st.tabs(["Upload the file", "enter the data here"])
@@ -194,10 +194,10 @@ if selected == "Predictions":
     #st.write(Predicted_datafile)
 
     #Inserting the predicted file to SQL and PowerBI
-    sql = "INSERT INTO Predicted_datafile (id,Year,Week,Date,center_id,meal_id,checkout_price,base_price,emailer_for_promotion,homepage_featured,city_code,region_code,center_type,op_area,category,cuisine,num_orders) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    sql = "INSERT INTO predicted_datafile (id,Year,Week,Date,center_id,meal_id,checkout_price,base_price,emailer_for_promotion,homepage_featured,city_code,region_code,center_type,op_area,category,cuisine,num_orders) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     sql_cols = ['id','Year','Week','Date','center_id','meal_id','checkout_price','base_price','emailer_for_promotion','homepage_featured','city_code','region_code','center_type','op_area','category','cuisine','num_orders']
     #Insert Dataframe into SQL Server
-    cursor.executemany(sql,Predicted_datafile[sql_cols].values.tolist())
+    cursor.executemany(sql,predicted_datafile[sql_cols].values.tolist())
     connection.commit()
     #st.write(cursor.rowcount, "Record inserted successfully into Predicted_datafile table")
     cursor.close()
