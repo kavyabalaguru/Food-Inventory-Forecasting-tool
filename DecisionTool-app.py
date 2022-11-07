@@ -197,7 +197,7 @@ if selected == "Predictions":
     sql = "INSERT INTO predicted_datafile (id,Year,Week,Date,center_id,meal_id,checkout_price,base_price,emailer_for_promotion,homepage_featured,city_code,region_code,center_type,op_area,category,cuisine,num_orders) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     sql_cols = ['id','Year','Week','Date','center_id','meal_id','checkout_price','base_price','emailer_for_promotion','homepage_featured','city_code','region_code','center_type','op_area','category','cuisine','num_orders']
     #Insert Dataframe into SQL Server
-    cursor.executemany(sql,predicted_datafile[sql_cols].values.tolist())
+    cursor.executemany(sql,Predicted_datafile[sql_cols].values.tolist())
     connection.commit()
     #st.write(cursor.rowcount, "Record inserted successfully into Predicted_datafile table")
     cursor.close()
