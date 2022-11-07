@@ -197,7 +197,7 @@ if selected == "Predictions":
         #file_name='Predicted_data.csv',
         #mime='text/csv',
     #)
-    SQL_Query = pd.read_sql_query('''select id,Year,Week,Date,center_id,meal_id,checkout_price,base_price,emailer_for_promotion,homepage_featured,city_code,region_code,center_type,op_area,category,cuisine,num_orders from Predicted_datafile''', connection)
+    SQL_Query = pd.read_sql_query('''select id,Year,Week,Date,center_id,meal_id,checkout_price,base_price,emailer_for_promotion,homepage_featured,city_code,region_code,center_type,op_area,category,cuisine,num_orders from predicted_datafile''', connection)
     Predicted_datafile = pd.DataFrame(SQL_Query, columns=['id','Year','Week','Date','center_id','meal_id','checkout_price','base_price','emailer_for_promotion','homepage_featured','city_code','region_code','center_type','op_area','category','cuisine','num_orders'])
     st.subheader("Sum of Orders on weekly basis")
     Predicted_datafile['Date']=Predicted_datafile['Date'].dt.date
